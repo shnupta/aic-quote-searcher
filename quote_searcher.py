@@ -1,5 +1,12 @@
 ''' an inspector calls quote searcher written by Casey Williams '''
 
+def is_int(stringy):
+	try:
+		int(stringy)
+	except ValueError:
+		return False
+	return True
+
 def find_act(line_number, filename):
 	with open(filename, 'r') as f:
 		for(i, line) in enumerate(f):
@@ -29,16 +36,19 @@ while (True):
 		results = []
 		for (i, line) in enumerate(f):
 			if (padded_quote in line): 
+				lines_per_page = 34
 				act = find_act(i, filename)
 				person = line.split(":")[0].replace("\t", "")
-				print("("+ str(result) +") The quote " + quote + " occurs on line " + str(i) + " spoken by " + person + " in " + act)
+				print("("+ str(result) +") The quote '" + quote + "' is roughly on page " + str((i/lines_per_page)+1) +  " spoken by " + person + " in " + act)
 				result += 1
 				results.append(line)
-	
+	if(len(results) == 0):
+		print("Not found\n")
+
 	while(True):
 		print("")
 		choice = raw_input("If you'd like to see the full line, enter the result number in the brackets, else just press enter: ")
-		if(choice == ""):
+		if(choice == "" or not is_int(choice)):
 			print("")
 			break
 		else:
