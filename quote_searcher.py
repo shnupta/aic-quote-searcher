@@ -18,7 +18,7 @@ except:
 	exit()
 
 while (True):
-	quote = input("Enter the quote you'd like to find, enter '%quit%': ").lower()
+	quote = raw_input("Enter the quote you'd like to find, enter '%quit%': ").lower()
 	if(quote == "%quit%"):
 		print("Bye!")
 		exit()
@@ -37,7 +37,7 @@ while (True):
 	
 	while(True):
 		print("")
-		choice = input("If you'd like to see the full line, enter the result number in the brackets, else just press enter: ")
+		choice = raw_input("If you'd like to see the full line, enter the result number in the brackets, else just press enter: ")
 		if(choice == ""):
 			print("")
 			break
