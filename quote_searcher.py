@@ -25,10 +25,22 @@ while (True):
 	padded_quote = str(" " + quote + " ")
 	print("")
 	with open(filename, 'r') as f:
+		result = 0
+		results = []
 		for (i, line) in enumerate(f):
-			if (padded_quote in line):
+			if (padded_quote in line): 
 				act = find_act(i, filename)
 				person = line.split(":")[0].replace("\t", "")
-				print("The quote " + quote + " occurs on line " + str(i) + " spoken by " + person + " in " + act)
-
-	print("")
+				print("("+ str(result) +") The quote " + quote + " occurs on line " + str(i) + " spoken by " + person + " in " + act)
+				result += 1
+				results.append(line)
+	
+	while(True):
+		print("")
+		choice = input("If you'd like to see the full line, enter the result number in the brackets, else just press enter: ")
+		if(choice == ""):
+			print("")
+			break
+		else:
+			print("")
+			print(results[int(choice)])
