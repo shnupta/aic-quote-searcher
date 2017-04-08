@@ -8,7 +8,9 @@ def find_act(line_number, filename):
 					act = line.lower().title().replace("{", "")
 	return act
 
-filename = input("Please enter the name of the .txt (e.g. myfile.txt): ")
+#filename = input("Please enter the name of the .txt (e.g. myfile.txt): ")
+filename = "an_inspector_calls.txt"
+
 try:
 	open(filename)
 except:
